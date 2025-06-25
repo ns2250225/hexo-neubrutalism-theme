@@ -62,7 +62,7 @@ function addMobileMenuToggle() {
     const nav = document.querySelector('.site-navigation');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (nav && navMenu) {
+    if (nav && navMenu && !nav.querySelector('.mobile-menu-btn')) {
         // Create mobile menu button
         const mobileMenuBtn = document.createElement('button');
         mobileMenuBtn.className = 'mobile-menu-btn';
@@ -124,6 +124,14 @@ function addMobileMenuToggle() {
         mobileMenuBtn.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             this.innerHTML = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // 点击菜单项后自动关闭菜单
+        navMenu.addEventListener('click', function(e) {
+            if (e.target.classList.contains('nav-link')) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '☰';
+            }
         });
         
         // Close menu when clicking outside

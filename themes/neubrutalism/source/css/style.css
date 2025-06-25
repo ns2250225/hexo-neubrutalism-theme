@@ -1145,65 +1145,200 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-      "header"
-      "main"
-      "sidebar"
-      "footer";
+    padding: 0 0.3rem;
+    gap: 1rem;
   }
-  
-  .header-content {
-    flex-direction: column;
-    text-align: center;
+  .main-content, .home-page, .post-page, .about-page {
+    padding: 0;
+    margin: 0;
   }
-  
-  .nav-menu {
-    justify-content: center;
+  .posts-grid {
+    gap: 1rem;
   }
-  
-  .site-title {
-    font-size: 2rem;
+  .post-card {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
   }
-  
-  .post-header .post-title {
-    font-size: 2rem;
+  .post-meta, .post-tags, .post-categories {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.95rem;
   }
-  
+  .post-content {
+    padding: 0.5rem;
+    font-size: 0.97rem;
+    word-break: break-word;
+  }
+  .sidebar-section {
+    padding: 0.7rem;
+  }
+  .recent-post-link, .category-link, .archive-link, .tag-cloud-item, .category-cloud-item {
+    font-size: 0.97rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .all-tags, .all-categories {
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  .categories-page, .tags-page, .archive-page {
+    padding: 0;
+  }
+  .category-title, .section-title, .about-title {
+    font-size: 1.1rem;
+  }
   .footer-content {
     flex-direction: column;
-    text-align: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
   }
-  
-  .nav-links {
-    flex-direction: column;
+  .neubrutalism-footer {
+    padding: 1rem;
+    margin-top: 1rem;
   }
-  
-  .pagination-content {
-    flex-direction: column;
+  .author-avatar .avatar {
+    width: 60px;
+    height: 60px;
   }
-  
-  .post-content {
-    padding: 1.5rem;
-    font-size: 1rem;
-  }
-  
-  .post-content h1 { font-size: 1.8rem; }
-  .post-content h2 { font-size: 1.6rem; }
-  .post-content h3 { font-size: 1.4rem; }
-  
-  .post-content pre {
-    padding: 1.5rem;
-    font-size: 0.85rem;
-  }
-  
-  .post-content table {
+  .author-bio {
     font-size: 0.9rem;
   }
-  
-  .post-content th,
-  .post-content td {
-    padding: 0.8rem;
+  .read-more-btn {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+  .pagination-content {
+    gap: 0.5rem;
+  }
+  .no-posts {
+    padding: 1rem 0.5rem;
+  }
+  .categories-list, .tags-list, .archives-list {
+    padding: 0;
+    margin: 0;
+  }
+  .category-item, .tag-item, .archive-item {
+    margin-bottom: 0.5rem;
+    word-break: break-all;
+  }
+  .category-link, .tag-cloud-item, .archive-link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+    min-width: 0;
+    word-break: break-all;
+  }
+  .category-count, .archive-count {
+    margin-left: 0.3rem;
+    font-size: 0.85rem;
+    padding: 0.1rem 0.4rem;
+  }
+  .archive-post {
+    gap: 0.6rem;
+    padding: 0.5rem 0;
+    flex-wrap: wrap;
+  }
+  .archive-post .post-date {
+    min-width: 2.8rem;
+    font-size: 0.98rem;
+    padding: 0.18rem 0.5rem;
+    margin-right: 0.3em;
+    border-radius: 0.35em;
+    box-shadow: 1px 1px 0 var(--black);
+    line-height: 1.2;
+    height: auto;
+    display: inline-block;
+  }
+  .archive-post .post-title {
+    font-size: 1rem;
+    word-break: break-all;
+  }
+  .post-page {
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+    max-width: 100vw;
+  }
+  .post-header.neubrutalism-card,
+  .post-content.neubrutalism-card,
+  .post-tags.neubrutalism-card,
+  .post-navigation.neubrutalism-card {
+    padding: 1rem 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.7rem;
+    box-shadow: 2px 2px 0 var(--black);
+  }
+  .post-title {
+    font-size: 1.35rem;
+    margin-bottom: 0.7rem;
+    word-break: break-all;
+    padding: 0 0.2rem;
+  }
+  .post-page .post-meta {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.98rem;
+    margin: 0.3rem auto 0 auto;
+  }
+  .post-page .post-date,
+  .post-page .category-tag {
+    font-size: 0.95rem;
+    padding: 0.13rem 0.5rem;
+    min-width: 2.5rem;
+    border-radius: 0.3em;
+    margin-right: 0.2em;
+    box-shadow: 1px 1px 0 var(--black);
+    height: auto;
+    display: inline-block;
+  }
+  .post-content {
+    font-size: 0.99rem;
+    padding: 0.2rem 0.1rem;
+    line-height: 1.7;
+    word-break: break-word;
+  }
+  .post-content h1 { font-size: 1.4rem; }
+  .post-content h2 { font-size: 1.18rem; }
+  .post-content h3 { font-size: 1.08rem; }
+  .post-content h4, .post-content h5, .post-content h6 { font-size: 1rem; }
+  .post-content p { font-size: 0.99rem; margin-bottom: 1.2rem; }
+  .post-content blockquote {
+    padding: 1rem 1.2rem;
+    font-size: 0.98rem;
+    margin: 1.2rem 0;
+    border-radius: 0 7px 7px 0;
+  }
+  .post-tags.neubrutalism-card {
+    padding: 0.7rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .tags-list {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .tag-item {
+    font-size: 0.95rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3em;
+  }
+  .post-navigation.neubrutalism-card {
+    padding: 0.7rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .nav-prev, .nav-next {
+    font-size: 0.98rem;
+    padding: 0.4rem 0.2rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  /* 评论区适配 */
+  .comments {
+    padding: 0.5rem 0.2rem;
   }
 }
 
@@ -1277,7 +1412,6 @@ textarea:focus {
   font-size: 0.9rem;
   font-weight: 600;
   transition: var(--transition);
-  border-radius: 0.5rem;
 }
 .all-tags .tag-cloud-item:hover {
   transform: translate(-1px, -1px);
@@ -1890,4 +2024,61 @@ textarea:focus {
 .about-page.neubrutalism-card.post-page {
   margin-top: 0 !important;
   margin-bottom: 0;
+}
+
+/* --- 移动端细节优化和汉堡菜单 --- */
+@media (max-width: 768px) {
+  .nav-menu {
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .nav-link {
+    min-width: 90px;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+  .neubrutalism-sidebar {
+    order: 2;
+    margin-top: 2rem;
+    width: 100%;
+    padding: 0;
+  }
+  .sidebar-section {
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+  }
+  .post-card, .sidebar-section {
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+  }
+  .post-title, .post-header .post-title {
+    font-size: 1.3rem;
+    word-break: break-all;
+  }
+  .post-excerpt, .post-content {
+    font-size: 0.98rem;
+  }
+  .read-more-btn, .pagination-content, .pagination-prev, .pagination-next {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .footer-content, .social-links {
+    justify-content: center !important;
+    text-align: center;
+    gap: 1rem;
+  }
+  .post-content table, .post-content pre {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+}
+.post-content img, .avatar {
+  max-width: 100%;
+  height: auto;
 } 
