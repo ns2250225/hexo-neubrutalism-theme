@@ -1,0 +1,116 @@
+<aside class="site-sidebar neubrutalism-sidebar">
+  <div class="sidebar-content">
+    <!-- Author Info -->
+    <% if (theme.sidebar.show_author && theme.sidebar.about) { %>
+      <section class="sidebar-section author-info neubrutalism-card">
+        <h3 class="section-title">About</h3>
+        <div class="author-content">
+          <% if (theme.sidebar.about.avatar) { %>
+            <div class="author-avatar">
+              <img src="<%= theme.sidebar.about.avatar %>" alt="<%= theme.sidebar.about.name %>" class="avatar">
+            </div>
+          <% } %>
+          <% if (theme.sidebar.about.name) { %>
+            <h4 class="author-name"><%= theme.sidebar.about.name %></h4>
+          <% } %>
+          <% if (theme.sidebar.about.bio) { %>
+            <p class="author-bio"><%= theme.sidebar.about.bio %></p>
+          <% } %>
+          <% if (theme.sidebar.about.socials && Object.keys(theme.sidebar.about.socials).length) { %>
+            <div class="author-socials">
+              <% for (const [key, url] of Object.entries(theme.sidebar.about.socials)) { %>
+                <a href="<%= url %>" target="_blank" rel="noopener" title="<%= key %>">
+                  <% if (key === 'email') { %>
+                    <i class="fas fa-envelope"></i>
+                  <% } else if (key === 'zhihu') { %>
+                    <i class="fab fa-zhihu"></i>
+                  <% } else { %>
+                    <i class="fab fa-<%= key %>"></i>
+                  <% } %>
+                </a>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+      </section>
+    <% } %>
+    
+    <!-- Recent Posts -->
+    <% if (theme.sidebar.show_recent_posts) { %>
+      <section class="sidebar-section recent-posts neubrutalism-card">
+        <h3 class="section-title">Recent Posts</h3>
+        <ul class="recent-posts-list">
+          <% site.posts.sort('date', -1).limit(theme.sidebar.recent_posts_count).each(function(post) { %>
+            <li class="recent-post-item">
+              <a href="<%- url_for(post.path) %>" class="recent-post-link">
+                <%= post.title %>
+              </a>
+              <time class="recent-post-date">
+                <%= date(post.date, 'MM-DD') %>
+              </time>
+            </li>
+          <% }); %>
+        </ul>
+      </section>
+    <% } %>
+    
+    <!-- Categories -->
+    <% if (theme.sidebar.show_categories) { %>
+      <section class="sidebar-section categories neubrutalism-card">
+        <h3 class="section-title">Categories</h3>
+        <ul class="categories-list">
+          <% site.categories.each(function(category) { %>
+            <li class="category-item">
+              <a href="<%- url_for(category.path) %>" class="category-link">
+                <%= category.name %>
+                <span class="category-count">(<%= category.posts.length %>)</span>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </section>
+    <% } %>
+    
+    <!-- Tags -->
+    <% if (theme.sidebar.show_tags) { %>
+      <section class="sidebar-section tags neubrutalism-card">
+        <h3 class="section-title">Tags</h3>
+        <div class="tags-cloud">
+          <% site.tags.each(function(tag) { %>
+            <a href="<%- url_for(tag.path) %>" class="tag-cloud-item">
+              #<%= tag.name %>
+            </a>
+          <% }); %>
+        </div>
+      </section>
+    <% } %>
+    
+    <!-- Archives -->
+    <% if (theme.sidebar.show_archives) { %>
+      <section class="sidebar-section archives neubrutalism-card">
+        <h3 class="section-title">Archives</h3>
+        <ul class="archives-list">
+          <% 
+            var archives = {};
+            site.posts.sort('date', -1).each(function(post) {
+              var year = date(post.date, 'YYYY');
+              if (!archives[year]) {
+                archives[year] = 0;
+              }
+              archives[year]++;
+            });
+            
+            Object.keys(archives).sort().reverse().forEach(function(year) {
+          %>
+            <li class="archive-item">
+              <a href="<%- url_for('/archives/' + year) %>" class="archive-link">
+                <%= year %>
+                <span class="archive-count">(<%= archives[year] %>)</span>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </section>
+    <% } %>
+  </div>
+</aside> 

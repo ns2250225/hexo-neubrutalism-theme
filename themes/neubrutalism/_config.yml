@@ -1,0 +1,167 @@
+# Neubrutalism Theme Configuration
+
+# Header
+header:
+  # Header background color
+  bg_color: "#FF6B9D"
+  # Header text color
+  text_color: "#FFFFFF"
+  # Show site title
+  show_title: true
+  # Show site subtitle
+  show_subtitle: true
+  # Navigation menu items
+  menu:
+    Home: /
+    Archives: /archives
+    Categories: /categories
+    Tags: /tags
+    About: /about
+
+# Footer
+footer:
+  # Footer background color
+  bg_color: "#4ECDC4"
+  # Footer text color
+  text_color: "#FFFFFF"
+  # Copyright text
+  copyright: "© 2024 Your Blog. All rights reserved."
+  # Show powered by Hexo
+  show_powered: true
+
+# Sidebar
+sidebar:
+  # Sidebar position: left, right, or none
+  position: right
+  # Sidebar background color
+  bg_color: "#FFE66D"
+  # Show author info
+  show_author: true
+  # About区域可配置内容
+  about:
+    avatar: "/images/avatar.jpg"
+    name: "马清雄"
+    bio: "AI极客，热爱前端、音视频、AI与开源。"
+    link_text: "关于我"
+    link_url: "/about"
+    socials:
+      github: "https://github.com/ns2250225"
+      twitter: "https://twitter.com/maqingxiong1"
+      email: "mailto:243027571@qq.com"
+      zhihu: "https://www.zhihu.com/people/ma-qing-xiong-56"
+  # Show recent posts
+  show_recent_posts: true
+  # Number of recent posts to show
+  recent_posts_count: 5
+  # Show categories
+  show_categories: true
+  # Show tags
+  show_tags: true
+  # Show archives
+  show_archives: true
+
+# Posts
+post:
+  # Post title color
+  title_color: "#FF6B9D"
+  # Post meta color
+  meta_color: "#95E1D3"
+  # Post content background
+  content_bg: "#FFFFFF"
+  # Post border color
+  border_color: "#FF9A8B"
+  # Show post navigation
+  show_nav: true
+  # Show post tags
+  show_tags: true
+  # Show post categories
+  show_categories: true
+  # Show post date
+  show_date: true
+  # Show post author
+  show_author: true
+
+# Home page
+home:
+  # Post card background color
+  card_bg: "#FFFFFF"
+  # Post card border color
+  card_border: "#FF9A8B"
+  # Post card shadow color
+  card_shadow: "#FF6B9D"
+  # Post excerpt color
+  excerpt_color: "#666666"
+  # Read more button color
+  read_more_bg: "#4ECDC4"
+  # Read more button text color
+  read_more_text: "#FFFFFF"
+
+# Colors (Macaron palette)
+colors:
+  primary: "#FF6B9D"      # Pink
+  secondary: "#4ECDC4"    # Turquoise
+  accent: "#FFE66D"       # Yellow
+  warm: "#FF9A8B"         # Coral
+  cool: "#95E1D3"         # Mint
+  neutral: "#F7F7F7"      # Light Gray
+  dark: "#2C3E50"         # Dark Blue
+  white: "#FFFFFF"        # White
+
+# Typography
+typography:
+  # Font family for headings
+  heading_font: "'Bebas Neue', 'Impact', sans-serif"
+  # Font family for body text
+  body_font: "'Inter', 'Arial', sans-serif"
+  # Base font size
+  base_size: "16px"
+  # Line height
+  line_height: "1.6"
+
+# Effects
+effects:
+  # Enable Neubrutalism shadows
+  enable_shadows: true
+  # Shadow offset
+  shadow_offset: "4px"
+  # Enable hover effects
+  enable_hover: true
+  # Enable animations
+  enable_animations: true
+
+# Social media
+social:
+  github: ""
+  twitter: ""
+  facebook: ""
+  instagram: ""
+  linkedin: ""
+  email: ""
+
+# Comments
+comments:
+  # Enable comments
+  enable: false
+  # Comments provider: disqus, gitalk, etc.
+  provider: ""
+
+# Analytics
+analytics:
+  # Google Analytics ID
+  google_analytics: ""
+  # Baidu Analytics ID
+  baidu_analytics: ""
+
+# Search
+search:
+  # Enable search
+  enable: false
+  # Search provider: local, algolia, etc.
+  provider: ""
+
+# Code highlighting
+highlight:
+  # Theme for code highlighting
+  theme: "github"
+  # Enable line numbers
+  line_number: true 

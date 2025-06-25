@@ -1,0 +1,21 @@
+<div class="tags-page">
+  <header class="page-header neubrutalism-card">
+    <h1 class="page-title">All Tags</h1>
+    <p class="page-description">Browse all tags</p>
+  </header>
+
+  <section class="all-tags neubrutalism-card">
+    <h3 class="section-title">Tags</h3>
+    <div class="tags-cloud">
+      <% if (site.tags && site.tags.length > 0) { %>
+        <% site.tags.sort('name').each(function(tag) { %>
+          <a href="<%- url_for(tag.path) %>" class="tag-cloud-item">
+            #<%= tag.name %> (<%= tag.length %>)
+          </a>
+        <% }); %>
+      <% } else { %>
+        <span>No tags yet!</span>
+      <% } %>
+    </div>
+  </section>
+</div> 

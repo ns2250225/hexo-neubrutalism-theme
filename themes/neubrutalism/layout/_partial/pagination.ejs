@@ -1,0 +1,29 @@
+<% if (page.total > 1) { %>
+  <nav class="pagination neubrutalism-pagination">
+    <div class="pagination-content">
+      <% if (page.prev) { %>
+        <a href="<%- url_for(page.prev_link) %>" class="pagination-prev">
+          ← Previous
+        </a>
+      <% } %>
+      
+      <div class="pagination-numbers">
+        <% for (let i = 1; i <= page.total; i++) { %>
+          <% if (i === page.current) { %>
+            <span class="pagination-current"><%= i %></span>
+          <% } else { %>
+            <a href="<%- url_for(page.path + (i === 1 ? '' : i)) %>" class="pagination-number">
+              <%= i %>
+            </a>
+          <% } %>
+        <% } %>
+      </div>
+      
+      <% if (page.next) { %>
+        <a href="<%- url_for(page.next_link) %>" class="pagination-next">
+          Next →
+        </a>
+      <% } %>
+    </div>
+  </nav>
+<% } %> 

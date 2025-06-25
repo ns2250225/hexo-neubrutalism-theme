@@ -1,0 +1,51 @@
+<div class="home-page">
+  <% if (page.posts && page.posts.length > 0) { %>
+    <div class="posts-grid">
+      <% page.posts.each(function(post) { %>
+        <article class="post-card neubrutalism-card">
+          <div class="post-card-content">
+            <header class="post-header">
+              <h2 class="post-title">
+                <a href="<%- url_for(post.path) %>" class="post-link">
+                  <%= post.title %>
+                </a>
+              </h2>
+            </header>
+            
+            <div class="post-meta">
+              <time class="post-date" datetime="<%= date_xml(post.date) %>">
+                <%= date(post.date, 'YYYY-MM-DD') %>
+              </time>
+              <% if (post.categories && post.categories.length > 0) { %>
+                <span class="post-category">
+                  <a href="<%- url_for(post.categories.data[0].path) %>">
+                    <%= post.categories.data[0].name %>
+                  </a>
+                </span>
+              <% } %>
+            </div>
+            
+            <div class="post-excerpt">
+              <% if (post.excerpt) { %>
+                <p><%= strip_html(post.excerpt) %></p>
+              <% } else { %>
+                <p><%= strip_html(post.content).substring(0, 150) %>...</p>
+              <% } %>
+            </div>
+            <a href="<%- url_for(post.path) %>" class="read-more-btn">
+              Read More
+            </a>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+    
+    <!-- Pagination -->
+    <%- partial('_partial/pagination') %>
+  <% } else { %>
+    <div class="no-posts">
+      <h2>No posts yet!</h2>
+      <p>Start writing your first blog post.</p>
+    </div>
+  <% } %>
+</div> 

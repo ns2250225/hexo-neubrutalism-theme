@@ -1,0 +1,29 @@
+<header class="site-header neubrutalism-header">
+  <div class="header-content">
+    <div class="site-brand">
+      <% if (theme.header.show_title) { %>
+        <h1 class="site-title">
+          <a href="<%- url_for('/') %>" class="site-link">
+            <%= config.title %>
+          </a>
+        </h1>
+      <% } %>
+      
+      <% if (theme.header.show_subtitle && config.subtitle) { %>
+        <p class="site-subtitle"><%= config.subtitle %></p>
+      <% } %>
+    </div>
+    
+    <nav class="site-navigation">
+      <ul class="nav-menu">
+        <% for (let key in theme.header.menu) { %>
+          <li class="nav-item">
+            <a href="<%- url_for(theme.header.menu[key]) %>" class="nav-link">
+              <%= key %>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    </nav>
+  </div>
+</header> 

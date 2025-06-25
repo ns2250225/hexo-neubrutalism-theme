@@ -1,0 +1,68 @@
+<div class="tag-page">
+  <header class="page-header neubrutalism-card">
+    <h1 class="page-title">Tag: <%= page.tag %></h1>
+    <p class="page-description"><%= page.posts.length %> posts with this tag</p>
+  </header>
+
+  <!-- 所有标签导航 -->
+  <section class="all-tags neubrutalism-card">
+    <h3 class="section-title">All Tags</h3>
+    <div class="tags-cloud">
+      <% site.tags.sort('name').each(function(tag) { %>
+        <a href="<%- url_for(tag.path) %>" class="tag-cloud-item<%= tag.name === page.tag ? ' current-tag' : '' %>">
+          #<%= tag.name %> (<%= tag.length %>)
+        </a>
+      <% }); %>
+    </div>
+  </section>
+
+  <% if (page.posts.length > 0) { %>
+    <div class="tag-posts">
+      <% page.posts.each(function(post) { %>
+        <article class="tag-post neubrutalism-card">
+          <header class="post-header">
+            <h2 class="post-title">
+              <a href="<%- url_for(post.path) %>" class="post-link">
+                <%= post.title %>
+              </a>
+            </h2>
+          </header>
+          <div class="post-meta">
+            <time class="post-date" datetime="<%= date_xml(post.date) %>">
+              <%= date(post.date, 'YYYY-MM-DD') %>
+            </time>
+            <% if (post.categories && post.categories.length > 0) { %>
+              <div class="post-categories">
+                <% post.categories.each(function(category) { %>
+                  <a href="<%- url_for(category.path) %>" class="category-tag">
+                    <%= category.name %>
+                  </a>
+                <% }); %>
+              </div>
+            <% } %>
+          </div>
+          <div class="post-excerpt">
+            <% if (post.excerpt) { %>
+              <p><%= strip_html(post.excerpt) %></p>
+            <% } else { %>
+              <p><%= strip_html(post.content).substring(0, 200) %>...</p>
+            <% } %>
+          </div>
+          <div class="post-footer">
+            <a href="<%- url_for(post.path) %>" class="read-more-btn">
+              Read More
+            </a>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <div class="no-posts">
+      <h2>No posts for this tag yet!</h2>
+      <p>Try another tag or write your first post with this tag.</p>
+    </div>
+  <% } %>
+
+  <!-- Pagination -->
+  <%- partial('_partial/pagination') %>
+</div> 

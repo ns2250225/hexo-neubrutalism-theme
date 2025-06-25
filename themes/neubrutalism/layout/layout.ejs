@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <%- partial('_partial/head') %>
+  
+  <title><% if (page.title){ %><%= page.title %> | <% } %><%= config.title %></title>
+  
+  <%- css('css/style.css') %>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <%- partial('_partial/after-head') %>
+</head>
+
+<body class="neubrutalism-theme">
+  <div class="container">
+    <!-- Header -->
+    <%- partial('_partial/header') %>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <%- body %>
+    </main>
+    
+    <!-- Sidebar -->
+    <% if (theme.sidebar && theme.sidebar.position !== 'none') { %>
+      <%- partial('_partial/sidebar') %>
+    <% } %>
+  </div>
+  
+  <!-- Scripts -->
+  <%- js('js/main.js') %>
+  <%- partial('_partial/after-footer') %>
+</body>
+</html> 

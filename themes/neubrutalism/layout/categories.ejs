@@ -1,0 +1,37 @@
+<div class="categories-page">
+  <header class="page-header neubrutalism-card">
+    <h1 class="page-title">All Categories</h1>
+    <p class="page-description">Browse all categories and their posts</p>
+  </header>
+
+  <section class="all-categories-list">
+    <% if (site.categories && site.categories.length > 0) { %>
+      <% site.categories.sort('name').each(function(category) { %>
+        <div class="category-group neubrutalism-card">
+          <h2 class="category-title">
+            <a href="<%- url_for(category.path) %>" class="category-link">
+              <%= category.name %> (<%= category.length %>)
+            </a>
+          </h2>
+          <ul class="category-posts-list">
+            <% category.posts.sort('date', -1).each(function(post) { %>
+              <li class="category-post-item">
+                <a href="<%- url_for(post.path) %>" class="category-post-link">
+                  <%= post.title %>
+                </a>
+                <span class="category-post-date">
+                  <%= date(post.date, 'YYYY-MM-DD') %>
+                </span>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <div class="no-posts">
+        <h2>No categories yet!</h2>
+        <p>Start by adding categories to your posts.</p>
+      </div>
+    <% } %>
+  </section>
+</div> 

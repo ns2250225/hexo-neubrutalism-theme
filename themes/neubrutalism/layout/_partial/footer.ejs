@@ -1,0 +1,55 @@
+<footer class="site-footer neubrutalism-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <% if (theme.footer.copyright) { %>
+        <p class="copyright"><%= theme.footer.copyright %></p>
+      <% } %>
+      
+      <% if (theme.footer.show_powered) { %>
+        <p class="powered-by">
+          Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+        </p>
+      <% } %>
+    </div>
+    
+    <% if (theme.social && Object.keys(theme.social).some(key => theme.social[key])) { %>
+      <div class="social-links">
+        <% if (theme.social.github) { %>
+          <a href="<%= theme.social.github %>" target="_blank" rel="noopener" class="social-link github">
+            GitHub
+          </a>
+        <% } %>
+        
+        <% if (theme.social.twitter) { %>
+          <a href="<%= theme.social.twitter %>" target="_blank" rel="noopener" class="social-link twitter">
+            Twitter
+          </a>
+        <% } %>
+        
+        <% if (theme.social.facebook) { %>
+          <a href="<%= theme.social.facebook %>" target="_blank" rel="noopener" class="social-link facebook">
+            Facebook
+          </a>
+        <% } %>
+        
+        <% if (theme.social.instagram) { %>
+          <a href="<%= theme.social.instagram %>" target="_blank" rel="noopener" class="social-link instagram">
+            Instagram
+          </a>
+        <% } %>
+        
+        <% if (theme.social.linkedin) { %>
+          <a href="<%= theme.social.linkedin %>" target="_blank" rel="noopener" class="social-link linkedin">
+            LinkedIn
+          </a>
+        <% } %>
+        
+        <% if (theme.social.email) { %>
+          <a href="mailto:<%= theme.social.email %>" class="social-link email">
+            Email
+          </a>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
+</footer> 
